@@ -10,11 +10,6 @@ db = mysql.connector.connect(user='root', passwd='123456', database='iotdata',au
 con = db.cursor()
 
 
-# conn = MongoClient('127.0.0.1', 27017)
-# db = conn.mydb  # 连接mydb数据库，没有则自动创建
-# my_set = db.test_set  # 使用test_set集合，没有则自动创建
-
-
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
@@ -23,14 +18,11 @@ def on_connect(client, userdata, flags, rc):
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     # 在这里处理业务逻辑
-    print(msg.topic + " " + str(msg.payload))
-    data0 = msg.topic + " " + str(msg.payload)
+    print(msg.topic + " " + msg.payload.decode("utf-8"))
+    data0 = msg.topic + " " + msg.payload.decode("utf-8")
     time0=time.strftime("%Y-%m-%d %H:%M:%S")
-    print(data0)
-    print("66666")
-    con.execute("insert into datamq values ('%s', '%s')" % (data0, time0))
+    con.execute("insert into datamq  (data,time) values ('%s', '%s')" % (data0, time0))
     db.commit()
-    print("77777")
 
 
 if __name__ == '__main__':
