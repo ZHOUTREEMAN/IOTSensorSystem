@@ -45,10 +45,10 @@ if __name__ == '__main__':
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_message = on_message
-
-    client.connect("127.0.0.1", 1883, 60)  # ip，端口号，
-    client.subscribe("computer")
-    client.subscribe("temperature")
-    client.subscribe("humidity")
-    client.subscribe("people")
-    client.loop_forever()
+    while True:
+        client.connect("127.0.0.1", 1883, 60)  # ip，端口号，
+        client.subscribe("computer")
+        client.subscribe("temperature")
+        client.subscribe("humidity")
+        client.subscribe("people")
+        client.loop_forever()

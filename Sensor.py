@@ -4,7 +4,7 @@ import paho.mqtt.publish as publish
 import time
 import random
 
-idx = 0  # 往paho/temperature 一直发送内容
+
 while True:
     print("send success")
     # 传感器数据模拟：
