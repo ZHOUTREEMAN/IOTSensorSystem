@@ -1,13 +1,12 @@
-import mysql.connector
+import MySQLdb
 import time
-# 打开数据库连接（请根据自己的用户名、密码及数据库名称进行修改）
-db = mysql.connector.connect(user='root', passwd='123456', database='iotdata',auth_plugin='mysql_native_password')
+# 云端数据库测试代码
+# 打开数据库连接
+db = MySQLdb.connect("62.234.154.66", "root", "123456", "internetofthings", charset='utf8' )
 # 使用cursor()方法获取操作游标
 con = db.cursor()
-time0 = time.time()
-timestr=time.strftime("%Y-%m-%d %H:%M:%S")
-print(timestr)
-data0="paho/temperature b this is message:1374 "
-print('2019-01-01')
-con.execute("insert into datamq (data,time) values ('%s', '%s')" % (data0, timestr))
+con.execute("insert into computer values ('11','1','2020-6-13 08:00:00','1','30','50','80')")
+con.execute("insert into temperature values ('16','2020-6-13 00:00:00','37.0','1','1')")
+con.execute("insert into people values ('11','2020-6-13 08:00:00','8','1')")
+con.execute("insert into humidity values ('21','2020-6-1-13 00:00:03','88','1')")
 db.commit()
