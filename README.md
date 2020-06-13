@@ -11,11 +11,11 @@ win10+mysql服务器（云端）+python3
 
      登录mosquitto.org网站，选择下载对应的版本。
 
-     ![](pic/01.png)
+     ![安装mqtt服务器-图](pic/01.png)
 
      按照其提示步骤安装完毕后，进行windows服务管理开启服务：
 
-     ![](pic/02.png)
+     ![打开服务-图](pic/02.png)
 
   2. python3相关的库：
 
