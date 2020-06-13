@@ -31,6 +31,7 @@ win10+mysql服务器（云端）+python3
   1. Sensor.py:传感器模拟，生成数据（主机信息、温度、湿度、人数），并传送到mqtt服务器上。
   2. DataTransferSystem.py:将mqtt服务器上的数据取出，根据topic进行分类处理，注入到云端数据库。
   3. databasetest.py:顾名思义，用来测试与云端数据库连接与sql语句执行的代码。
+  4. sql文件夹内为建表语句
 
 + **邮箱：**
 
